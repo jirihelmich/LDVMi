@@ -34,6 +34,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "jquery" % "2.1.1",
   "org.webjars" % "angular-moment" % "0.8.2",
   "org.webjars" % "momentjs" % "2.8.3",
+  "org.webjars" % "when-node" % "3.5.2-1",
   "org.webjars" % "react" % "0.12.2",
   "org.webjars" % "react-bootstrap" % "0.13.2",
   "org.webjars" % "react-router" % "0.11.6",
