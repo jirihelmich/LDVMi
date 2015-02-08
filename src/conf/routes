@@ -31,7 +31,12 @@ GET         /api/visualization/:id                          @controllers.api.Vis
 GET         /api/visualizer/list                            @controllers.api.VisualizerApiController.list(skip: Int, take: Int)
 GET         /api/visualizer/add                             @controllers.api.VisualizerApiController.add(name: String, signature: String, url: String, description: Option[String], dsdSignature: Option[String])
 
+# React Playground
+GET       	/react       									@controllers.reactplayground.ApplicationController.index
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET         /vassets/*file                                  controllers.Assets.versioned(path="/public", file: Asset)
 GET         /assets/*file                                   controllers.Assets.at(path="/public", file)
 GET         /webjars/*file                                  controllers.WebJarAssets.at(file)
+
