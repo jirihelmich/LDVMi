@@ -18,6 +18,17 @@
 					}
 
 					requirejs.config({
+						packages: [{
+							name: "rest",
+							main: "browser",
+							location: "@routes.WebJarAssets.at(
+								WebJarAssets.locate("browser.js").replace("browser.js", ""))"
+						}, {
+							name: "when",
+							main: "when",
+							location: "@routes.WebJarAssets.at(
+								WebJarAssets.locate("when.js").replace("when.js", ""))"
+						}],
 						paths: {
 							text: "@routes.WebJarAssets.at(
 								WebJarAssets.locate("js/text.js").replace(".js", ""))",

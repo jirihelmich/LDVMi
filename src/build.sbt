@@ -38,6 +38,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "react" % "0.12.2",
   "org.webjars" % "react-bootstrap" % "0.13.2",
   "org.webjars" % "react-router" % "0.11.6",
+  "org.webjars" % "Rest" % "1.2.0",
   "org.webjars" % "jsx-requirejs-plugin" % "0.5.1",
   "org.scalaj" %% "scalaj-http" % "0.3.16",
   "org.scaldi" % "scaldi-play_2.11" % "0.4.1",
