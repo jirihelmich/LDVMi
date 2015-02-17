@@ -12,30 +12,46 @@
 		<script>
 			var require = {
 				callback : function () {
-					// default requirejs configs
-					@for(webJarJson <- org.webjars.RequireJS.getSetupJson(routes.WebJarAssets.at("").url).values()) {
-						requirejs.config(@Html(webJarJson.toString)) ;
-					}
+					var packages = [];
+					var shim = {};
+
+					[
+						@for(webJarJson <- org.webjars.RequireJS.getSetupJson(routes.WebJarAssets.at("").url).values()) {
+							@Html(webJarJson.toString),
+						}
+					].forEach(function (webjar) {
+						if (webjar.paths) {
+							for (var name in webjar.paths) {
+								if (webjar.paths.hasOwnProperty(name)) {
+									packages.push({
+										name: name,
+										location: webjar.paths[name][0].replace(/\/[^\/]+$/, ""),
+										main: webjar.paths[name][1]
+									});
+								}
+							}
+						}
+						if (webjar.shim) {
+							for (var name in webjar.shim) {
+								if (webjar.shim.hasOwnProperty(name)) {
+									shim[name] = webjar.shim[name];
+								}
+							}
+						}
+					});
+
+					packages.push({
+						name: "rest",
+						main: "browser",
+						location: "@routes.WebJarAssets.at(WebJarAssets.locate("browser.js").replace("browser.js", ""))"
+					});
 
 					requirejs.config({
-						packages: [{
-							name: "rest",
-							main: "browser",
-							location: "@routes.WebJarAssets.at(
-								WebJarAssets.locate("browser.js").replace("browser.js", ""))"
-						}, {
-							name: "when",
-							main: "when",
-							location: "@routes.WebJarAssets.at(
-								WebJarAssets.locate("when.js").replace("when.js", ""))"
-						}],
+						packages: packages,
+						shim: shim,
 						paths: {
-							text: "@routes.WebJarAssets.at(
-								WebJarAssets.locate("js/text.js").replace(".js", ""))",
-							jsx: "@routes.WebJarAssets.at(
-								WebJarAssets.locate("js/jsx.js").replace(".js", ""))",
-							JSXTransformer: "@routes.WebJarAssets.at(
-								WebJarAssets.locate("js/JSXTransformer.js").replace(".js", ""))"
+							text: "@routes.WebJarAssets.at(WebJarAssets.locate("js/text.js").replace(".js", ""))",
+							jsx: "@routes.WebJarAssets.at(WebJarAssets.locate("js/jsx.js").replace(".js", ""))"
 						},
 						jsx: {
 							fileExtension: '.jsx'
