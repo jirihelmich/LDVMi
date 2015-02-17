@@ -1,9 +1,9 @@
 package controllers.api
 
-import model.dao.VisualizationEagerBox
-import model.services.VisualizationService
-import model.services.rdf.sparql.datacube.DataCubeService
-import model.services.rdf.sparql.geo.GeoService
+//import model.dao.VisualizationEagerBox
+import model.rdf.sparql.datacube.DataCubeService
+import model.rdf.sparql.geo.GeoService
+import model.mess.VisualizationService
 import play.api.Play.current
 import play.api.db.slick._
 import play.api.libs.concurrent.Execution.Implicits._
@@ -20,7 +20,7 @@ abstract class ApiController(implicit inj: Injector) extends Controller with Inj
   val visualizationService = inject[VisualizationService]
   val geoService = inject[GeoService]
 
-
+/*
   protected def simpleFuture[E]
     (id: Long)
       (enumeratorGetter: VisualizationEagerBox => Enumerator[Option[E]])
@@ -85,7 +85,7 @@ abstract class ApiController(implicit inj: Injector) extends Controller with Inj
     }.getOrElse {
       NotFound
     }
-  }
+  }*/
 
   protected def enumeratorToSeq[E](enumerator: Enumerator[Option[E]]): Future[List[E]] = {
     enumerator.through(Enumeratee.filter(_.isDefined)).run(
