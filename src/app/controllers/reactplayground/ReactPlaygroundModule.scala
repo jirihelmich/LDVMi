@@ -1,7 +1,8 @@
 package controllers.reactplayground
 
-import scaldi.Module
+/**
+ * Created by tobik on 17.2.15.
+ */
+class ReactPlaygroundModule {
 
-class ReactPlaygroundModule extends Module {
-  binding to new ApplicationController
 }

@@ -1,6 +1,5 @@
 import controllers.ControllerModule
 import controllers.api.ApiModule
-import controllers.reactplayground.ReactPlaygroundModule
 import play.api._
 import play.api.mvc.WithFilters
 import play.filters.gzip.GzipFilter
@@ -14,5 +13,5 @@ object Global extends WithFilters(
     )
   )
 ) with ScaldiSupport with GlobalSettings {
-  def applicationModule = new RepositoryModule :: new ServiceModule :: new RdfModule :: new ControllerModule :: new ApiModule :: new ReactPlaygroundModule
+  def applicationModule = new RepositoryModule :: new ServiceModule :: new RdfModule :: new ControllerModule :: new ApiModule
 }
