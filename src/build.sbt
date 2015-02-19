@@ -6,7 +6,7 @@ version := "1.0-SNAPSHOT"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.11.2"
+scalaVersion := "2.11.1"
 
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),
@@ -20,12 +20,12 @@ libraryDependencies ++= Seq(
   ws,
   filters,
   "com.typesafe.slick" %% "slick" % "2.1.0",
-  "org.webjars" %% "webjars-play" % "2.3.0-2",
+  "org.webjars" %% "webjars-play" % "2.3.0-1",
   "org.webjars" % "angularjs" % "1.2.24",
   "org.webjars" % "bootstrap" % "3.2.0",
   "org.webjars" % "requirejs-domready" % "2.0.1-2",
   "org.webjars" % "angular-ui" % "0.4.0-3",
-  "org.webjars" % "angular-ui-bootstrap" % "0.12.0",
+  "org.webjars" % "angular-ui-bootstrap" % "0.11.0-2",
   "org.webjars" % "angular-loading-bar" % "0.5.1",
   "org.webjars" % "underscorejs" % "1.6.0-3",
   "org.webjars" % "highcharts" % "4.0.3",
@@ -40,14 +40,8 @@ libraryDependencies ++= Seq(
   "org.webjars" % "react-router" % "0.11.6",
   "org.webjars" % "Rest" % "1.2.0",
   "org.webjars" % "jsx-requirejs-plugin" % "0.5.1",
-  "org.webjars" % "nervgh-angular-file-upload" % "1.1.5",
-  "org.webjars" % "d3js" % "3.5.2",
-  "org.webjars" % "angular-nvd3" % "0.0.9",
-  "org.webjars" % "nvd3" % "8415ee55d3",
-  "org.webjars" % "angularjs-nvd3-directives" % "0.0.7-1",
   "org.scalaj" %% "scalaj-http" % "0.3.16",
   "org.scaldi" % "scaldi-play_2.11" % "0.4.1",
-  "org.virtuslab" %% "unicorn-play" % "0.6.2",
   "org.apache.jena" % "jena" % "2.12.0",
   "org.apache.jena" % "jena-arq" % "2.12.0",
   "com.typesafe.play" %% "play-slick" % "0.8.0",
