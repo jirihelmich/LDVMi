@@ -34,7 +34,7 @@ libraryDependencies ++= Seq(
   "org.webjars" % "jquery" % "2.1.1",
   "org.webjars" % "angular-moment" % "0.8.2",
   "org.webjars" % "momentjs" % "2.8.3",
-  "org.webjars" % "when-node" % "3.5.2-1",
+  "org.webjars" % "when-node" % "3.5.2-3",
   "org.webjars" % "react" % "0.12.2",
   "org.webjars" % "react-bootstrap" % "0.13.2",
   "org.webjars" % "react-router" % "0.11.6",
@@ -50,7 +50,8 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.6",
   "com.github.tototoshi" %% "slick-joda-mapper" % "1.2.0",
   "com.vividsolutions" % "jts" % "1.8",
-  "org.webjars" % "openlayers" % "3.0.0"
+  "org.webjars" % "openlayers" % "3.0.0",
+  "org.webjars" % "webjars-locator" % "0.21"
 )
 
 JsEngineKeys.engineType := JsEngineKeys.EngineType.Node

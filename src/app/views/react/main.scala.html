@@ -12,43 +12,16 @@
 		<script>
 			var require = {
 				callback : function () {
-					var packages = [];
-					var shim = {};
-
-					[
-						@for(webJarJson <- org.webjars.RequireJS.getSetupJson(routes.WebJarAssets.at("").url).values()) {
-							@Html(webJarJson.toString),
-						}
-					].forEach(function (webjar) {
-						if (webjar.paths) {
-							for (var name in webjar.paths) {
-								if (webjar.paths.hasOwnProperty(name)) {
-									packages.push({
-										name: name,
-										location: webjar.paths[name][0].replace(/\/[^\/]+$/, ""),
-										main: webjar.paths[name][1]
-									});
-								}
-							}
-						}
-						if (webjar.shim) {
-							for (var name in webjar.shim) {
-								if (webjar.shim.hasOwnProperty(name)) {
-									shim[name] = webjar.shim[name];
-								}
-							}
-						}
-					});
-
-					packages.push({
-						name: "rest",
-						main: "browser",
-						location: "@routes.WebJarAssets.at(WebJarAssets.locate("browser.js").replace("browser.js", ""))"
-					});
+					@for(webJarJson <- org.webjars.RequireJS.getSetupJson(routes.WebJarAssets.at("").url).values()) {
+						requirejs.config (@Html(webJarJson.toString));
+					}
 
 					requirejs.config({
-						packages: packages,
-						shim: shim,
+						packages: [{
+							name: "rest",
+							main: "browser",
+							location: "@routes.WebJarAssets.at(WebJarAssets.locate("browser.js").replace("browser.js", ""))"
+						}],
 						paths: {
 							text: "@routes.WebJarAssets.at(WebJarAssets.locate("js/text.js").replace(".js", ""))",
 							jsx: "@routes.WebJarAssets.at(WebJarAssets.locate("js/jsx.js").replace(".js", ""))"
