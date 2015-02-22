@@ -51,7 +51,9 @@ libraryDependencies ++= Seq(
   "com.github.tototoshi" %% "slick-joda-mapper" % "1.2.0",
   "com.vividsolutions" % "jts" % "1.8",
   "org.webjars" % "openlayers" % "3.0.0",
-  "org.webjars" % "webjars-locator" % "0.21"
+  "org.webjars" % "webjars-locator" % "0.21",
+  "org.webjars" % "requirejs-plugins" % "3ff54566f8",
+  "org.webjars" % "lodash" % "3.1.0"
 )
 
 JsEngineKeys.engineType := JsEngineKeys.EngineType.Node
