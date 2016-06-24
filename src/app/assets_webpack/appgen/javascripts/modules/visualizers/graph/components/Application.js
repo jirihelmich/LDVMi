@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import BodyPadding from '../../../../components/BodyPadding'
 import { Application as ApplicationModel } from '../../../app/models'
 import { Visualizer } from '../../../core/models'
+import GraphLoader from '../containers/GraphLoader'
 
 class Application extends Component {
   static propTypes = {
@@ -18,6 +19,7 @@ class Application extends Component {
         <p>It runs in {embed ? 'embed' : 'standalone'} mode</p>
         <p>{application.name}</p>
         <p>{visualizer.title}</p>
+        <GraphLoader />
       </BodyPadding>
     )
   }

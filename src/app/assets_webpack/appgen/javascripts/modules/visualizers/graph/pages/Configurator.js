@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import BodyPadding from '../../../../components/BodyPadding'
 import { Application } from '../../../app/models'
 import { Visualizer } from '../../../core/models'
+import GraphLoader from '../containers/GraphLoader'
 
 class Configurator extends Component {
   static propTypes = {
@@ -16,6 +17,7 @@ class Configurator extends Component {
         <p>This is the graph visualizer configurator.</p>
         <p>{application.name}</p>
         <p>{visualizer.title}</p>
+        <GraphLoader />
       </BodyPadding>
     )
   }
